@@ -10,8 +10,8 @@ class Header extends Component {
 	}
 	render() {
 		return (
-			<div className="container">
-			  <div className="card" style = {{backgroundColor: '#b43b07'}}>
+			<div className="container fixed-top">
+			  <div className="card " style = {{backgroundColor: '#b43b07'}}>
 			  	<div className="card-body">
 			  		<div className="row">
 			  		    <div className="col-sm">
