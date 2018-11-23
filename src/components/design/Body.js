@@ -21,13 +21,11 @@ class Body extends Component {
 				<div className="row">
 					<div className="col-sm-2">
 						<br />
-						<div className="card fixed" >
-							<div className="card-body">
-								<Link to = "/add" >
-									Click here to Post! 
-								</Link>
-							</div>
-						</div>
+						<Link to="/add">  
+							<button type="button" className="btn btn-outline-warning">
+								Post Here!
+							</button>
+						</Link>
 					</div>
 
 		  		    <div className="col-sm-8">
