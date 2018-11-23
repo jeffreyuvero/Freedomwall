@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 
 import TextInputGroup from '../design/TextInputGroup';
 
+import {connect} from 'react-redux';
+import {addPost} from '../../actions/postActions';
+import {Link} from 'react-router-dom'
+
 class Add extends Component {
 	state = {
 		name : "",
@@ -11,8 +15,29 @@ class Add extends Component {
 		errors: {}
 	}
 
-	onSubmit = (e) => {
+	onSubmit = (e) => { 
+		e.preventDefault();
+
+		const {name , tags , content} = this.state; 
+		if(tags == ""){
+			return ; 
+		}
+
+		if(content == ""){
+			return ; 
+		}
+
+		let newTags = tags.split(" "); // split 
+		let uniqueTags = [...new Set(newTags)]; 
 		
+		const NewPost = {
+			name, 
+			tags : uniqueTags, 
+			content
+		}
+
+		this.props.addPost(NewPost); 
+
 		this.props.history.push('/');
 	}
 
@@ -22,18 +47,22 @@ class Add extends Component {
 		const {name, tags, content, errors} = this.state; 
 		return (
 			<div className = "container">
-				<br />
 				<div style={{width : '100%', height: '95px'}}>
-				    &nbsp;
+				&nbsp;
 				</div>
 				<div className="row">
 					<div className="col-sm-2">
-						
+						<br />
+						<Link to="/">  
+							<button type="button" className="btn btn-outline-warning">
+								Home
+							</button>
+						</Link>
 					</div>
 		  		    <div className="col-sm-8">
-		  		    	<div className = "card"> 
-		  		    		<div className = "card-header">
-		  		    			<h5>Add Post</h5> 
+		  		    	<div className = "card" style = {{marginTop : '10px'}}> 
+		  		    		<div className="card-header" style = {{backgroundColor: '#e8dfc0'}}>
+		  		    			<h4><strong>Add Post</strong></h4> 
 		  		    		</div>
 		  		    		<div className = "card-body">
 		  		    			<form onSubmit = {this.onSubmit}>
@@ -44,6 +73,7 @@ class Add extends Component {
 		  		    					value = {name}
 		  		    					onChange = {this.onChange}
 		  		    					error = {errors.name}
+		  		    					type = "text"
 	  		    				    />
 	  		    				    <TextInputGroup
 		  		    					label = "Tag"
@@ -52,6 +82,7 @@ class Add extends Component {
 		  		    					value = {tags}
 		  		    					onChange = {this.onChange}
 		  		    					error = {errors.tag}
+		  		    					type = "text"
 	  		    				    />
 	  		    				    <TextInputGroup
 		  		    					label = "Content"
@@ -60,9 +91,8 @@ class Add extends Component {
 		  		    					value = {content}
 		  		    					onChange = {this.onChange}
 		  		    					error = {errors.content}
+		  		    					type = "textarea"
 	  		    				    />
-	  		    				    <br />
-
 	  		    				    <input 
 	  		    				    	type = "submit"
 	  		    				    	value = "Add Post"
@@ -82,4 +112,8 @@ class Add extends Component {
 	}
 }
 
-export default Add 
+const mapDispatchToProps = () => {
+	
+}
+
+export default connect(null,{addPost})(Add)

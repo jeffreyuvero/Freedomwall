@@ -16,7 +16,8 @@ export const getPosts = () => async dispatch => {
 };
 
 export const addPost = (post) => async dispatch => {
-	const res = await axios.post('http://192.168.0.54/fwall/index.php/fwall/post_list',post);
+	// console.log(post)
+	const res = await axios.post('http://192.168.0.54/fwall/index.php/fwall/add_post',post);
 	dispatch ({
 		type: ADD_POST,
 		payload: res.data, 
