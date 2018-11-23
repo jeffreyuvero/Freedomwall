@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Posts from '../components/Posts'
+import { Link } from 'react-router-dom'
 
 import { getPosts } from '../../actions/postActions'
 
@@ -20,11 +21,11 @@ class Body extends Component {
 				<div className="row">
 					<div className="col-sm-2">
 						<br />
-						<div className="card fixed" >
-							<div className="card-body">
-								<a href="#" >Click here to Post! </a>
-							</div>
-						</div>
+						<Link to="/add">  
+							<button type="button" className="btn btn-outline-warning">
+								Post Here!
+							</button>
+						</Link>
 					</div>
 
 		  		    <div className="col-sm-8">
