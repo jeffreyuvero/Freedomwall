@@ -5,9 +5,6 @@ import { Title } from '../../configuration'
 
 
 class Header extends Component {
-	constructor(props) {
-		super(props);
-	}
 	render() {
 		return (
 			<div className="container fixed-top">

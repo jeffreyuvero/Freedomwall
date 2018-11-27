@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 const TextInputGroup = ({
@@ -13,9 +13,9 @@ const TextInputGroup = ({
 }) => {
 	return (
 		<div>
-			{ (type == "text" ) ? (
+			{ (type === "text" ) ? (
 				<div>
-					<label htmlfor = {name} > {label} </label>
+					<label htmlFor = {name} > {label} </label>
 					<input
 						type = {type}
 						name = {name}
@@ -31,7 +31,7 @@ const TextInputGroup = ({
 			) : 
 				(
 					<div className="form-group">
-					  <label for="comment">{name}:</label>
+					  <label htmlFor="comment">{name}:</label>
 					  <textarea className="form-control" rows="5" name = {name} placeholder= {placeholder} onChange = {onChange}></textarea>
 					</div> 
 				)

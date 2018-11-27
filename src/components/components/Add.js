@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import TextInputGroup from '../design/TextInputGroup';
 
 import {connect} from 'react-redux';
-import {addPost} from '../../actions/postActions';
+import {addPost, getPosts} from '../../actions/postActions';
 import {Link} from 'react-router-dom'
 
 class Add extends Component {
@@ -19,11 +19,11 @@ class Add extends Component {
 		e.preventDefault();
 
 		const {name , tags , content} = this.state; 
-		if(tags == ""){
+		if(tags === ""){
 			return ; 
 		}
 
-		if(content == ""){
+		if(content=== ""){
 			return ; 
 		}
 
@@ -37,7 +37,6 @@ class Add extends Component {
 		}
 
 		this.props.addPost(NewPost); 
-
 		this.props.history.push('/');
 	}
 
@@ -112,8 +111,15 @@ class Add extends Component {
 	}
 }
 
-const mapDispatchToProps = () => {
+// const mapDispatchToProps = () => {
 	
-}
+// }
 
-export default connect(null,{addPost})(Add)
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addPost: contact => dispatch(addPost(contact)),
+//     getPosts: getPosts,
+//   }
+// };
+
+export default connect(null,{addPost,getPosts})(Add)

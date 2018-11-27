@@ -8,11 +8,11 @@ class Posts extends Component {
 			  <div className="card" >
 			  	<div className="card-header" style = {{backgroundColor: '#e8dfc0'}}>
 			  		<h4><strong>Post from {name}</strong></h4>
-			  		<small>Tags: {tags.map(tag => <span>#{tag} </span> )}   </small>
+			  		<small>Tags: {tags.map(tag => <span>{tag} </span> )}   </small>
 			  	</div>
 			  	<div className="card-body">
 			  		<p className = "card-text">{content}</p>
-			  		<footer class="blockquote-footer"><small>{date} and {time} </small></footer>
+			  		<footer className="blockquote-footer"><small>{date} and {time} </small></footer>
 			  	</div>
 			  </div>
 		);
