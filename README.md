@@ -16,5 +16,7 @@
 
 ## Configuration
 
-	Go to src/configuration/index.js and you can see the configuration of this apps. The constant isProduction value is 1 if the web app is in production and 0 if not while the constant API valued the Rest API of your server. 
+	Go to src/configuration/index.js and you can see the configuration of this apps.
+	The constant isProduction value is 1 if the web app is in production and 0 if not 
+	while the constant API valued the Rest API of your server. 
 
