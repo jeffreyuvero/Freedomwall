@@ -2,12 +2,15 @@ import {createStore, applyMiddleware,compose} from 'redux';
 import thunk from 'redux-thunk'
 import rootReducer from './reducers'
 
-// const initialState = { posts: [ {id : 1, name: "Jeff", tags: [ 'a', 'b' ], content: 'content', date: 'asdas', time: 'asdsa'} ] }; 
+
+import {isProduction} from './configuration'
+
 const initialState = {};
 const middleware = [thunk];
 
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-	window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose; 
+		window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose; 
 
 const enhancer = composeEnhancers(
 	applyMiddleware(...middleware), 
@@ -16,8 +19,13 @@ const enhancer = composeEnhancers(
 
 const store = createStore (
 	rootReducer,
-	initialState,
-	enhancer
+	(isProduction === 1) ? (
+		applyMiddleware(thunk)
+	): (
+		initialState,
+		enhancer
+	)
 );
+
 
 export default store; 

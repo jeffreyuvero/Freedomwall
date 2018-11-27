@@ -7,7 +7,12 @@ import { Link } from 'react-router-dom'
 
 import { getPosts } from '../../actions/postActions'
 
+import {Title} from '../../configuration'
+
 class Body extends Component {
+	componentWillMount() {
+		document.title = Title; 
+	}
 	componentDidMount() {
 		this.props.getPosts();
 	}
