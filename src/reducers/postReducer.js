@@ -1,7 +1,7 @@
 import {GET_POSTS, ADD_POST} from '../actions/types'
 
 const initialState = {
-	posts:  [],
+	 posts:[]
 };
 
 export default function (state = initialState, action){
@@ -15,6 +15,7 @@ export default function (state = initialState, action){
 			// 	...state
 			// }
 		case ADD_POST:
+			console.log(action.payload)
 			return {
 				...state,
 				posts: [action.payload,...state.posts] 

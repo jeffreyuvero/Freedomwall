@@ -27,7 +27,6 @@ class Body extends Component {
 							</button>
 						</Link>
 					</div>
-
 		  		    <div className="col-sm-8">
 		  		    	{posts.map(post => (
 		  		    		<div>
@@ -50,11 +49,8 @@ Body.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-	posts: state.post.posts
+	posts: state.posts.posts
 })
 
-const mapDispatchToProps = (state) => ({
-	getPosts
-})
 
 export default connect(mapStateToProps,{getPosts})(Body)
